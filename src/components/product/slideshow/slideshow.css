@@ -14,12 +14,18 @@
   
   .swiper {
     width: 100%;
-    max-width: 800px;
-    height: 700px;
+    max-width: 650px;
+    height: 650px;
     margin-left: auto;
     margin-right: auto;
   }
-  
+
+  @media (max-width: 768px) {
+    .swiper {
+      max-width: 800px;
+    }  
+  }
+
   .swiper-slide {
     background-size: cover;
     background-position: center;

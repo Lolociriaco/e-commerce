@@ -13,7 +13,7 @@ const productsInCart = [
 ]
 
 
-export default function() {
+export default function CheckoutCart() {
     return(
         <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
             <div className="flex flex-col w-full max-w-[1200px] mx-10">

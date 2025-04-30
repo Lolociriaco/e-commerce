@@ -4,7 +4,7 @@ import { Title } from '@/components';
 import Link from 'next/link';
 import { IoCardOutline } from 'react-icons/io5';
 
-export default function() {
+export default function OrderPage() {
   return (
     <div className='flex justify-center mx-4 sm:mx-10'>
         <div className='max-w-[1200px] w-full'>

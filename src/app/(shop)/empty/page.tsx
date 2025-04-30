@@ -3,7 +3,7 @@ import Link from "next/link";
 import { title } from "node:process";
 import { IoCartOutline } from "react-icons/io5";
 
-export default function() {
+export default function EmptyCart() {
     return(
         <div className="flex justify-center items-center h-[800px]">
             <IoCartOutline size={ 80 } className="mx-5"/>

@@ -56,13 +56,13 @@ export const TopMenu = () => {
           {/* Dropdown */}
             {isOpen && (
               <div className="absolute left-0 bg-gray-100 w-[200px] shadow-md p-2 mt-2 rounded-md z-50">
-                <Link href="/category/men" className="block p-2 hover:bg-gray-200">
+                <Link href="/gender/men" className="block p-2 hover:bg-gray-200">
                   Men
                 </Link>
-                <Link href="/category/women" className="block p-2 hover:bg-gray-200">
+                <Link href="/gender/women" className="block p-2 hover:bg-gray-200">
                   Women
                 </Link>
-                <Link href="/category/kid" className="block p-2 hover:bg-gray-200">
+                <Link href="/gender/kid" className="block p-2 hover:bg-gray-200">
                   Kids
                 </Link>
               </div>

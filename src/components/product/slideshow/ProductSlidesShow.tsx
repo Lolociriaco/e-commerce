@@ -31,6 +31,7 @@ export const ProductSlidesShow = ({ images, title, className }: Props) => {
                 style={{
                 '--swiper-navigation-color': '#fff',
                 '--swiper-pagination-color': '#fff',
+                '--swiper-navigation-size': '30px',
                 } as React.CSSProperties
                 }
                 spaceBetween={10}
@@ -47,11 +48,10 @@ export const ProductSlidesShow = ({ images, title, className }: Props) => {
                         <SwiperSlide key={image}>
                             <Image 
                                 width={1024}
-                                height={800}
+                                height={700}
                                 src={ `/products/${ image }` }
                                 alt={ title }
-                                className="md:rounded-lg object-cover"
-                                //style={{objectFit: 'fill'}}
+                                className="md:rounded-lg object-fill"
                                 />
                         </SwiperSlide>
                     ))
