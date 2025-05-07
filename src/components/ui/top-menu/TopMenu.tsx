@@ -3,13 +3,23 @@
 import { titleFont } from "@/config/fonts"
 import Link from "next/link"
 import { IoCartOutline, IoMenuOutline } from "react-icons/io5";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import  useUiStore from "@/store/ui/ui-store";
+import { useCartStore } from "@/store";
 
 
 export const TopMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [loaded, setLoad] = useState(false);
+
+  useEffect(() => {
+    setLoad(true);
+  })
+
+  const itemsInCart = useCartStore( state => state.getTotalItems() )
+  
+  
 
   // Abre el menú inmediatamente
   const handleMouseEnter = () => {
@@ -79,9 +89,13 @@ export const TopMenu = () => {
         <div className="flex items-center m-4 gap-7">
             <Link href="/cart">
                 <div className="relative">
-                    <span className="absolute text-xs rounded-full px-[8px] py-[3px] font-bold -top-2 -right-2 bg-blue-500 text-white">
-                        3
-                    </span>
+                  {
+                    (itemsInCart > 0 && loaded) && (
+                      <span className="absolute text-xs rounded-full px-[8px] py-[3px] font-bold -top-2 -right-2 bg-blue-500 text-white">
+                          {itemsInCart}
+                      </span>
+                    )
+                  }
                     <IoCartOutline className="w-8 h-8"/>
                 </div>
             </Link>

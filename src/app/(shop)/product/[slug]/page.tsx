@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { titleFont } from "@/config/fonts";
 import { getProductBySlug } from "@/actions";
 import { Metadata, ResolvingMetadata } from "next";
+import { AddToCart } from "./ui/AddToCart";
 
 interface Props{
     params: {
@@ -80,30 +81,7 @@ export default async function ProductBySlug({params}: Props) {
                 </h1>
                 <p className="text-lg mb-5 xl:text-xl">${product.price}</p>
 
-                {/* Select Size */}
-
-                <SizeSelector 
-                    selectedSize={product.sizes[0]}
-                    availableSizes={product.sizes}
-                    />
-
-                {/* Select How Many */}
-
-                <QuantitySelector 
-                    quantity={3}
-                />
-
-                {/* Button */}
-                {
-                    product.inStock ?
-                    <button className="btn-primary my-5"
-                    //onClick={}
-                    >
-                        Agregar al carrito
-                    </button>
-                    :
-                    <button className="btn-unable my-5">Agregar al carrito</button>
-                }
+                <AddToCart product={product}/>
 
                 {/* Description */}
 

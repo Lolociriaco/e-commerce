@@ -4,11 +4,13 @@ import React from 'react'
 
 
 interface Props{
-    selectedSize: Size;
+    selectedSize?: Size;
     availableSizes: Size[];
+
+    onSizeChange: (size: Size) => void;
 }
 
-export const SizeSelector = ({ selectedSize, availableSizes}: Props) => {
+export const SizeSelector = ({ selectedSize, availableSizes, onSizeChange}: Props) => {
 
   return (
     <div className='my-5'>
@@ -17,7 +19,9 @@ export const SizeSelector = ({ selectedSize, availableSizes}: Props) => {
         <div className='flex'>
             {
                 availableSizes.map( size => (
-                    <button key={size} 
+                    <button 
+                    onClick={ () => onSizeChange(size)}
+                    key={size} 
                     className={
                         clsx(
                             'mx-2 hover:underline text-lg',
