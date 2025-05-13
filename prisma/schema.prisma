@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -12,9 +13,14 @@ enum Size {
   S
   M
   L
-  XL 
+  XL
   XXL
   XXXL
+}
+
+enum Role {
+  admin
+  user
 }
 
 enum Gender {
@@ -43,7 +49,7 @@ model Product {
   tags        String[] @default([])
 
   //RELACIONES
-  category   Category @relation(fields: [categoryId], references: [id]) 
+  category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
 
   ProductImage ProductImage[]
@@ -57,4 +63,14 @@ model ProductImage {
 
   productId String
   product   Product @relation(fields: [productId], references: [id])
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  password      String
+  role          Role      @default(user)
+  image         String?
 }

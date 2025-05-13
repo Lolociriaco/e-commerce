@@ -11,6 +11,9 @@ export * from './products/product-grid/ProductGrid';
 export * from './products/product-grid/ProductGridItem';
 
 
+export * from './providers/Provider';
+
+
 export * from './product/slideshow/ProductMobileSlidesShow';
 export * from './product/slideshow/ProductSlidesShow';
 export * from './product/size-selector/SizeSelector';

@@ -62,10 +62,10 @@ export const Pagination = ({ totalPages }: Props) => {
                             <Link
                                 className={
                                     clsx(
-                                        "page-link relative block py-1.5 px-3.5 rounded border-0 outline-none transition-all duration-300 text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none",
+                                        "page-link relative block py-1.5 px-3.5 rounded border-0 outline-none transition-all duration-300 text-gray-800 hover:text-gray-800 focus:shadow-none",
                                         {
                                             'bg-blue-600 shadow-md text-white hover:bg-blue-700 hover:text-white': page === currentPage,
-                                            'bg-transparent': page !== currentPage
+                                            'bg-transparent hover:bg-gray-200': page !== currentPage
                                         }
                                     )
                                 }

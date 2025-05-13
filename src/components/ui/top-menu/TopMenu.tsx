@@ -12,14 +12,16 @@ export const TopMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [loaded, setLoad] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setLoad(true);
+    setMounted(true)
   })
 
   const itemsInCart = useCartStore( state => state.getTotalItems() )
   
-  
+  const cartHref = itemsInCart === 0 ? "/empty" : "/cart"
 
   // Abre el menú inmediatamente
   const handleMouseEnter = () => {
@@ -87,11 +89,11 @@ export const TopMenu = () => {
         {/* Busqueda carrito y menu*/}
 
         <div className="flex items-center m-4 gap-7">
-            <Link href="/cart">
+            <Link href={ mounted ? cartHref : ""}>
                 <div className="relative">
                   {
                     (itemsInCart > 0 && loaded) && (
-                      <span className="absolute text-xs rounded-full px-[8px] py-[3px] font-bold -top-2 -right-2 bg-blue-500 text-white">
+                      <span className="fade-in absolute text-xs rounded-full px-[8px] py-[3px] font-bold -top-2 -right-2 bg-blue-500 text-white">
                           {itemsInCart}
                       </span>
                     )

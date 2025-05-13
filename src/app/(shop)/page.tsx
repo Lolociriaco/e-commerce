@@ -6,14 +6,15 @@ import { redirect } from "next/navigation";
 
 interface Props {
   searchParams: {
-    page?: string;
+    page?: string
   }
 }
 
 
 export default async function Home({ searchParams }: Props) {
 
-  const page = searchParams.page ? parseInt ( searchParams.page) : 1;
+  const page = searchParams.page ? parseInt ( searchParams.page ) : 1;
+  
   const { products, totalPages } = await getPaginatedProductsWithImages({ page });
 
   if ( products.length === 0) {
